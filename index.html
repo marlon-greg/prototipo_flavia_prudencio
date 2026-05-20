@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio Flávia Prudêncio — Protótipo</title>
+<meta name="ext-resource-dependency" content="https://image.pollinations.ai/prompt/minimalist%20pilates%20studio%20interior%20with%20reformer%20machine,%20soft%20natural%20morning%20light%20through%20large%20windows,%20wooden%20floor,%20indoor%20plants,%20beige%20and%20sage%20green%20tones,%20clinical%20calm%20atmosphere,%20professional%20editorial%20photography,%20wide%20angle,%20no%20people?width=720&height=900&nologo=true&seed=4271" data-resource-id="pilatesPhoto" />
+<template id="__bundler_thumbnail" data-bg-color="#0F3326">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0F3326"/>
+    <circle cx="600" cy="380" r="170" fill="#1F4A3D" stroke="#C8E6DC" stroke-width="3"/>
+    <text x="600" y="410" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="600" font-size="120" fill="#C8E6DC" letter-spacing="6">FP</text>
+    <text x="600" y="640" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="500" font-size="44" fill="#C8E6DC" letter-spacing="2">Flávia Prudêncio</text>
+    <text x="600" y="690" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="400" font-size="22" fill="rgba(200,230,220,0.6)" letter-spacing="8">FISIO · PILATES</text>
+  </svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-900:#0F3326;
+    --green-800:#1F4A3D;
+    --green-700:#2C5E4A;
+    --green-600:#3D7461;
+    --green-500:#5C9684;
+    --teal-200:#C8E6DC;
+    --teal-100:#DFEEE8;
+    --teal-50:#EFF7F3;
+    --ink-900:#0E1512;
+    --ink-700:#39463F;
+    --ink-500:#6B7872;
+    --ink-300:#A6AEAA;
+    --ink-200:#D1D6D3;
+    --ink-100:#E7EBE9;
+    --ink-50:#F4F6F5;
+    --bg:#FBFCFB;
+    --warn:#E0A800;
+    --danger:#C13B3B;
+    --info:#3A6EA5;
+    --r-sm:8px;
+    --r-md:12px;
+    --r-lg:18px;
+    --r-xl:24px;
+    --shadow-sm:0 1px 2px rgba(15,51,38,.04), 0 1px 3px rgba(15,51,38,.06);
+    --shadow-md:0 4px 14px rgba(15,51,38,.06), 0 10px 30px rgba(15,51,38,.05);
+    --shadow-lg:0 12px 40px rgba(15,51,38,.10), 0 30px 70px rgba(15,51,38,.08);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink-900);
+    font-family:'Poppins',ui-sans-serif,system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{min-height:100vh;overflow-x:hidden}
+  button{font-family:inherit}
+  /* Top module switcher */
+  .switcher{position:fixed;top:14px;left:50%;transform:translateX(-50%);
+    z-index:1000;display:flex;gap:4px;padding:5px;
+    background:rgba(255,255,255,.85);backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    border:1px solid rgba(15,51,38,.08);border-radius:999px;
+    box-shadow:var(--shadow-md)}
+  .switcher button{appearance:none;border:0;background:transparent;
+    padding:8px 16px;border-radius:999px;font-size:13px;font-weight:500;
+    color:var(--ink-700);cursor:pointer;letter-spacing:.01em;
+    transition:background .15s, color .15s}
+  .switcher button:hover{color:var(--green-800)}
+  .switcher button.active{background:var(--green-800);color:#fff}
+  .switcher .sw-dot{width:6px;height:6px;border-radius:999px;background:currentColor;
+    display:inline-block;margin-right:7px;opacity:.6}
+  /* Logo placeholder */
+  .logo{display:inline-flex;align-items:center;gap:10px;color:var(--green-800);
+    font-weight:600;letter-spacing:-.01em}
+  .logo-mark{width:32px;height:32px;border-radius:50%;
+    background:var(--green-800);color:#fff;display:grid;place-items:center;
+    font-family:'Poppins';font-weight:600;font-size:13px;letter-spacing:.04em;
+    position:relative;overflow:hidden}
+  .logo-mark::after{content:"";position:absolute;inset:3px;border-radius:50%;
+    border:1px solid rgba(255,255,255,.35)}
+  .logo-mark span{position:relative;z-index:1}
+  .logo-name{display:flex;flex-direction:column;line-height:1.05}
+  .logo-name b{font-size:14px;font-weight:600}
+  .logo-name small{font-size:9.5px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-500);margin-top:2px}
+
+  /* Scrollbars */
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:rgba(15,51,38,.18);border-radius:999px;
+    border:2px solid transparent;background-clip:content-box}
+  ::-webkit-scrollbar-thumb:hover{background:rgba(15,51,38,.32);background-clip:content-box;border:2px solid transparent}
+
+  /* Generic buttons */
+  .btn{display:inline-flex;align-items:center;gap:8px;justify-content:center;
+    appearance:none;border:0;cursor:pointer;font-family:inherit;
+    font-weight:500;font-size:14px;padding:12px 20px;border-radius:999px;
+    transition:transform .12s, background .15s, box-shadow .15s, color .15s}
+  .btn-primary{background:var(--green-800);color:#fff;box-shadow:0 6px 20px rgba(31,74,61,.22)}
+  .btn-primary:hover{background:var(--green-900);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--green-800);border:1px solid rgba(31,74,61,.18)}
+  .btn-ghost:hover{background:var(--teal-50)}
+  .btn-soft{background:var(--teal-100);color:var(--green-800)}
+  .btn-soft:hover{background:var(--teal-200)}
+  .btn-danger{background:#fff;color:var(--danger);border:1px solid rgba(193,59,59,.25)}
+  .btn-danger:hover{background:rgba(193,59,59,.06)}
+  .btn-sm{padding:8px 14px;font-size:12.5px}
+
+  /* Pill / chip */
+  .chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;
+    font-size:11.5px;font-weight:500;letter-spacing:.01em}
+  .chip-teal{background:var(--teal-100);color:var(--green-800)}
+  .chip-green{background:var(--green-800);color:#fff}
+  .chip-warn{background:#FBEFC9;color:#7A5A0A}
+  .chip-danger{background:#FADCDC;color:var(--danger)}
+  .chip-info{background:#DDE7F2;color:var(--info)}
+  .chip-dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+
+  /* Card */
+  .card{background:#fff;border:1px solid var(--ink-100);border-radius:var(--r-lg);
+    box-shadow:var(--shadow-sm)}
+
+  /* Inputs */
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:12px;font-weight:500;color:var(--ink-700);letter-spacing:.01em}
+  .field input,.field select,.field textarea{
+    appearance:none;border:1px solid var(--ink-200);border-radius:10px;
+    background:#fff;padding:12px 14px;font-family:inherit;font-size:14px;color:var(--ink-900);
+    transition:border-color .15s, box-shadow .15s;width:100%}
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:var(--green-600);box-shadow:0 0 0 4px rgba(92,150,132,.18)}
+  .field .hint{font-size:11.5px;color:var(--ink-500)}
+  .field .err{font-size:11.5px;color:var(--danger)}
+
+  /* Modal overlay */
+  .overlay{position:fixed;inset:0;background:rgba(15,51,38,.45);
+    -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);
+    display:flex;align-items:center;justify-content:center;z-index:900;
+    animation:fadeIn .18s ease-out}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes popIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+  .modal{background:#fff;border-radius:20px;box-shadow:var(--shadow-lg);
+    max-width:480px;width:calc(100% - 32px);max-height:calc(100vh - 64px);
+    overflow:auto;animation:popIn .22s cubic-bezier(.2,.8,.2,1)}
+
+  /* Section primitives */
+  .section-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:500;
+    color:var(--green-700);letter-spacing:.16em;text-transform:uppercase}
+  .section-eyebrow::before{content:"";width:24px;height:1px;background:currentColor}
+
+  h1,h2,h3,h4{font-family:'Poppins';font-weight:600;letter-spacing:-.02em;color:var(--ink-900);margin:0}
+
+  /* Image / asset placeholder */
+  .placeholder{
+    background:
+      repeating-linear-gradient(135deg,
+        rgba(31,74,61,.05) 0 8px,
+        rgba(31,74,61,.03) 8px 16px),
+      var(--teal-50);
+    display:grid;place-items:center;color:var(--green-700);
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.05em;
+    border:1px dashed rgba(31,74,61,.18);border-radius:var(--r-md)}
+  .placeholder.dark{background:
+      repeating-linear-gradient(135deg,
+        rgba(255,255,255,.05) 0 8px,
+        rgba(255,255,255,.03) 8px 16px),
+      var(--green-900);color:var(--teal-200);border-color:rgba(255,255,255,.15)}
+
+  /* Phone frame for Aluno module */
+  .phone-stage{min-height:calc(100vh - 80px);display:flex;align-items:center;justify-content:center;
+    padding:90px 16px 40px;
+    background:
+      radial-gradient(80% 60% at 50% 0%, rgba(200,230,220,.55), transparent 60%),
+      var(--bg)}
+  .phone{width:390px;height:780px;background:#000;border-radius:48px;
+    padding:14px;box-shadow:0 30px 80px rgba(15,51,38,.18), 0 6px 20px rgba(15,51,38,.10);
+    position:relative}
+  .phone::after{content:"";position:absolute;top:24px;left:50%;transform:translateX(-50%);
+    width:110px;height:30px;background:#000;border-radius:999px;z-index:3}
+  .phone-screen{width:100%;height:100%;background:#fff;border-radius:36px;
+    overflow:hidden;position:relative;display:flex;flex-direction:column}
+  .ios-status{display:flex;justify-content:space-between;align-items:center;
+    padding:14px 28px 6px;font-size:13px;font-weight:600;color:var(--ink-900)}
+  .ios-status .icons{display:flex;gap:6px;align-items:center}
+  .ios-status svg{display:block}
+
+  /* Loading skeleton */
+  @keyframes shimmer{0%{background-position:-200px 0}100%{background-position:200px 0}}
+  .skel{background:linear-gradient(90deg,var(--ink-100) 0%,var(--ink-50) 50%,var(--ink-100) 100%);
+    background-size:400px 100%;animation:shimmer 1.4s linear infinite;border-radius:8px}
+
+  /* Toast */
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+    background:var(--green-900);color:#fff;padding:12px 18px;border-radius:999px;
+    font-size:13px;font-weight:500;z-index:9999;
+    box-shadow:var(--shadow-lg);animation:popIn .25s cubic-bezier(.2,.8,.2,1)}
+
+  /* ---- Contain overlays/modals/sheets inside the phone frame for mobile previews ---- */
+  /* When an .overlay is rendered inside .phone-screen, scope it to the frame instead
+     of the viewport (the screen already has position:relative + overflow:hidden). */
+  .phone-screen .overlay{position:absolute;border-radius:36px}
+  .phone-screen .modal{
+    max-width:calc(100% - 28px) !important;
+    width:calc(100% - 28px) !important;
+    max-height:calc(100% - 32px) !important;
+    border-radius:18px}
+  /* Toasts also become local */
+  .phone-screen .toast{position:absolute;bottom:90px;font-size:12px;padding:10px 14px}
+  /* Side sheet → bottom sheet on mobile (slide up from bottom) */
+  .phone-screen .overlay.side-sheet{align-items:flex-end !important;justify-content:center !important}
+  .phone-screen .side-sheet-body{
+    width:100% !important;max-width:100% !important;height:auto !important;
+    max-height:88% !important;
+    border-radius:22px 22px 0 0 !important;
+    animation:bottomSheetIn .28s cubic-bezier(.2,.8,.2,1) !important}
+  @keyframes bottomSheetIn{from{transform:translateY(60%);opacity:.4}to{transform:none;opacity:1}}
+
+  /* Utility */
+  .vh-fill{min-height:calc(100vh - 80px)}
+  .num{font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="data.jsx"></script>
+<script type="text/babel" src="shared.jsx"></script>
+<script type="text/babel" src="landing.jsx"></script>
+<script type="text/babel" src="landing-mobile.jsx"></script>
+<script type="text/babel" src="portal.jsx"></script>
+<script type="text/babel" src="portal-desktop.jsx"></script>
+<script type="text/babel" src="admin.jsx"></script>
+<script type="text/babel" src="admin-mobile.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+</body>
+</html>
